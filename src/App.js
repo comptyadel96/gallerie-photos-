@@ -20,6 +20,7 @@ function App() {
             `${FetchUrl}/?key=${process.env.React_APP_Key}&q=${querySearch}&image_type=photo&page=${page}`
          )
          setData(images.data.hits)
+         console.log(images.data.hits)
          setIsLoading(false)
       } catch (e) {
          console.log(e.response.data)
@@ -68,7 +69,7 @@ function App() {
             <SearchBar queryImage={(text) => setQuerySearch(text)} />
          </div>
 
-         <div className=" flex flex-wrap flex-col md:flex-row md:justify-evenly px-2">
+         <div className=" flex flex-wrap align-middle  flex-col md:flex-row md:justify-evenly px-2 ">
             {data.map((image) => (
                <Card
                   title={image.user}
@@ -77,15 +78,16 @@ function App() {
                   key={image.id}
                />
             ))}
-            {data.length > 0 && (
+         </div>
+         {data.length > 0 && (
+            <div className="mx-auto w-28">
                <button
                   onClick={fetchMorePhotos}
-                  className=" m-auto bg-purple-500 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ml-2 text-white px-2 py-1 rounded-full">
+                  className="mb-2 mt-2 bg-purple-500 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ml-2 text-white px-3 py-1 rounded-full">
                   show more
                </button>
-            )}
-         </div>
-
+            </div>
+         )}
          {isLoading && (
             <FadeLoader color="purple" loading={isLoading} css={spinnercss} />
          )}
