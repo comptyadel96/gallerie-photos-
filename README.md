@@ -1,3 +1,9 @@
+simple project (image gallery with a search bar ) 
+1-this project use React js with tailwind as a css framework 
+2- data fetched from pixabay Api 
+3-that it . 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
