@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function SearchBar({ queryImage }) {
+function SearchBar({ queryImage,onClick }) {
    const [searchedItem, setSearchedItem] = useState("")
    const handleSubmit = (event) => {
       event.preventDefault()
@@ -16,7 +16,8 @@ function SearchBar({ queryImage }) {
             onChange={(e) => setSearchedItem(e.target.value)}
          />
          <button
-            type="submit" 
+            type="submit"
+            onClick={onClick}
             className=" bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ml-2 text-white px-4 py-1 rounded-full">
             search
          </button>
